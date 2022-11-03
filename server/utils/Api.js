@@ -42,7 +42,7 @@ const userData = async (accessToken, userId) => {
   }
 };
 
-const getActivity = async (accessToken, userId, date) => {
+const getActivity = async (userId, accessToken, date) => {
   try {
     const baseUrl = `https://api.fitbit.com/1/user/${userId}/activities/date/${date}.json`;
     const userAcData = await axios.get(baseUrl, {
@@ -50,6 +50,7 @@ const getActivity = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userAcData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -92,6 +93,7 @@ const getHeartRate = async (accessToken, userId) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userHrData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
