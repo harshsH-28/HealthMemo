@@ -21,6 +21,11 @@ const FitnessSchema = new mongoose.Schema({
       type: Object,
     },
   ],
+  heartRateVar: [
+    {
+      type: Object,
+    },
+  ],
   nutrition: [
     {
       type: Object,
