@@ -40,9 +40,52 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  fitness_rec: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "FitnessRecord",
+  fitness: {
+    activity: [
+      {
+        type: Object,
+      },
+    ],
+    breathingRate: [
+      {
+        type: Object,
+      },
+    ],
+    vo2: [
+      {
+        type: Object,
+      },
+    ],
+    heartRate: [
+      {
+        type: Object,
+      },
+    ],
+    heartRateVar: [
+      {
+        type: Object,
+      },
+    ],
+    nutrition: [
+      {
+        type: Object,
+      },
+    ],
+    sleep: [
+      {
+        type: Object,
+      },
+    ],
+    spo2: [
+      {
+        type: Object,
+      },
+    ],
+    temp: [
+      {
+        type: Object,
+      },
+    ],
   },
 });
 

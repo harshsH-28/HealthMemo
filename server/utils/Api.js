@@ -65,6 +65,7 @@ const getBreathingRate = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userBrData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -79,6 +80,7 @@ const getVo2 = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userVo2Data;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -108,6 +110,7 @@ const getHeartRateVar = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userHrvData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -122,6 +125,7 @@ const getNutrition = async (accessToken, userId) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userWaterData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -136,6 +140,7 @@ const getSleep = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userSleepData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -150,6 +155,7 @@ const getSpo2 = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userSpo2Data;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
@@ -164,6 +170,7 @@ const getTemp = async (accessToken, userId, date) => {
         authorization: `Bearer ${accessToken}`,
       },
     });
+    return userTempData;
   } catch (error) {
     console.log("Something is wrong with the fitbit request");
     console.log(error);
