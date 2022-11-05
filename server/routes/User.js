@@ -3,6 +3,10 @@ const router = express.Router();
 const { getAccessToken, userData } = require("../utils/Api.js");
 const User = require("../models/User");
 
+router.get("/", (req, res) => {
+  res.status(200).json({ ok: "hi" });
+});
+
 router.post("/newuser", async (req, res) => {
   try {
     const { authCode, email, docEmail, mobileNo } = req.body;
