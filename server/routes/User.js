@@ -3,6 +3,12 @@ const router = express.Router();
 const { getAccessToken, userData } = require("../utils/Api.js");
 const User = require("../models/User");
 
+// Checking Api EndPoint
+router.get("/", (req, res) => {
+  res.status(200).json({ ok: "hi" });
+});
+
+// Creating a new User
 router.post("/newuser", async (req, res) => {
   try {
     const { authCode, email, docEmail, mobileNo } = req.body;
@@ -22,11 +28,16 @@ router.post("/newuser", async (req, res) => {
       weight,
     });
     await newUser.save();
-    res.status(200).send({ success: true });
+    res.status(200).send({
+      status: "success",
+      message: "FuckOff",
+      token: tokenData.access_token,
+      user_id: tokenData.user_id,
+    });
   } catch (err) {
     console.log("Something went wrong during creating a new user");
     console.log(err);
-    res.status(200).send({ success: false });
+    res.status(200).send({ status: "failure", message: "FuckOff" });
   }
 });
 
