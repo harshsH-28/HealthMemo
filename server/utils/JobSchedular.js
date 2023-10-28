@@ -35,7 +35,7 @@ const every24Hrs = () => {
       const HrData = getMyHeartRate(user_id, date);
       const HrvData = getMyheartRateVar(user_id, date);
       const AcData = getMyActivity(user_id, myDate);
-      const BrData = getBreathingRate(user_id, myDate);
+      const BrData = getMyBreathingRate(user_id, myDate);
       const SleepData = getMySleep(user_id, myDate);
       const Spo2Data = getMySpo2(user_id, myDate);
       const TempData = getMyTemp(user_id, myDate);
@@ -44,9 +44,17 @@ const every24Hrs = () => {
 
       const options = {
         from: "healthMemoApp32434@outlook.com",
-        to: "harshsharma6419@gmail.com",
+        to: docemail,
         subject: `Health Report(${user.name}), Date: ${myDate} ${date.getMonth}`,
-        text: `Heart Rate  -----  
+        text: `Heart Rate  -----  ${HrData} \n
+        Heart Rate Variability  -----  ${HrvData} \n
+        Activity  -----  ${AcData} \n
+        Breathing Rate  -----  ${BrData} \n
+        Sleep  -----  ${SleepData} \n
+        Spo2  -----  ${Spo2Data} \n
+        Temperature  -----  ${TempData} \n
+        Vo2  -----  ${Vo2Data} \n
+        Water  -----  ${WaterLog} \n
         Out of Range`,
       };
 

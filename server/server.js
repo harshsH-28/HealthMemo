@@ -24,6 +24,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Checking Api EndPoint
+router.get("/", (req, res) => {
+  res.status(200).json({ ok: "hi" });
+});
+
 app.use("/api", require("./routes/User"));
 app.use("/api/fitness", require("./routes/Fitness"));
 

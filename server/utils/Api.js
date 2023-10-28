@@ -1,5 +1,6 @@
 const axios = require("axios");
 require("dotenv");
+const User = require("../models/User");
 
 // Extra api's for getting the Data
 const getAccessToken = async (authCode) => {
@@ -55,7 +56,15 @@ const getNewAccess = async (ref_token) => {
       "Content-Type": "application/x-www-form-urlencoded",
     },
   });
-  return newAccessToken.data;
+  await User.updateOne(
+    { userId },
+    {
+      $set: {
+        rfh_token: getNewToken.refresh_token,
+        acs_token: getNewToken.access_token,
+      },
+    }
+  );
 };
 
 const getActivity = async (userId, accessToken, date) => {
