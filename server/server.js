@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Checking Api EndPoint
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "API is working" });
+  res.status(200).json({ message: "API is working in a Docker Container" });
 });
 
 app.use("/api", require("./routes/User"));
