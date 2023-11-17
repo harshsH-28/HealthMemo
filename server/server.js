@@ -4,7 +4,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cronSchedule = require("./utils/JobSchedular");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -25,8 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Checking Api EndPoint
-router.get("/", (req, res) => {
-  res.status(200).json({ ok: "hi" });
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "API is working" });
 });
 
 app.use("/api", require("./routes/User"));
