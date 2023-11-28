@@ -4,9 +4,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const dbUrl = process.env.DB_URL;
 
 mongoose
@@ -30,6 +32,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", require("./routes/User"));
 app.use("/api/fitness", require("./routes/Fitness"));
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.listen(port, () => {
   console.log(`Server is Running on port ${port}`);
